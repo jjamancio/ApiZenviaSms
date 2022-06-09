@@ -13,7 +13,7 @@ namespace EnvioSMS
     {
         public string Telefone { get; set; }
         public string Mensagem { get; set; }
-        public string TOKEN { get; set; }
+        //public string TOKEN { get; set; }
 
 
 
@@ -26,7 +26,7 @@ namespace EnvioSMS
 
             string adicionar = "\"";
             string To = adicionar + zenviaRequest.Telefone + adicionar;
-            //string TOKEN = "cJiXd0tTOr7M9vmAGlHfU20_xN5SMvBDiTcq";
+            string TOKEN = "qxtBWBd7Dy2aRYorjO2EZq9HdBMe-k6_7mEg";
             string conteudo = adicionar + zenviaRequest.Mensagem + adicionar;
 
             // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests
@@ -35,7 +35,7 @@ namespace EnvioSMS
             {
                 using (var request = new HttpRequestMessage(new HttpMethod("POST"), "https://api.zenvia.com/v2/channels/sms/messages"))
                 {
-                    request.Headers.TryAddWithoutValidation("X-API-TOKEN", zenviaRequest.TOKEN);
+                    request.Headers.TryAddWithoutValidation("X-API-TOKEN", TOKEN);
 
                     string dados = "{\"from\":\"paper-child\",\"to\":" + To + ",\"contents\":[{\"type\":\"text\",\"text\":" + conteudo + "}]}";
                     request.Content = new StringContent(dados);
