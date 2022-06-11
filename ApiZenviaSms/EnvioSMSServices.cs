@@ -13,7 +13,7 @@ namespace EnvioSMS
     {
         public string Telefone { get; set; }
         public string Mensagem { get; set; }
-        //public string TOKEN { get; set; }
+        public string TOKEN { get; set; }
 
 
 
@@ -26,7 +26,7 @@ namespace EnvioSMS
 
             string adicionar = "\"";
             string To = adicionar + zenviaRequest.Telefone + adicionar;
-            string TOKEN = "qxtBWBd7Dy2aRYorjO2EZq9HdBMe-k6_7mEg";
+            string TOKEN = "";
             string conteudo = adicionar + zenviaRequest.Mensagem + adicionar;
 
             // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests
